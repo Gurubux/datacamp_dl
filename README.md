@@ -24,6 +24,18 @@ Activation function as the last Layer
 Binary-Sigmoid classification    
 Multiclass-Sofmax classification  
 
-
+**Forward Pass**  
 Running a Forward pass through a network  
 Predicting using a model
+- Binary and Multi-class classification
+- Regression
+  
+**Is there a Backward Pass?**  
+Also called backpropagation, it is used to update weights and biases during training.  
+
+**Training Loop**  
+1. Propagate data forward
+2. Compare outputs to true values (ground truth)
+3. Backpropagate to update mode weights and biases
+4. Repeat until weights and biases are tuned to produce useful outputs 
+
