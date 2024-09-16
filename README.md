@@ -39,10 +39,14 @@ Also called backpropagation, it is used to update weights and biases during trai
 3. Backpropagate to update mode weights and biases
 4. Repeat until weights and biases are tuned to produce useful outputs 
 
-In regression,  
+**In regression,**  
+```
 model = nn.Sequential(nn.Linear(6,4), nn.Linear(4,1))  
-output = model(input_data)  
-Basically, no Activation function as the last layer makes in Regression model.   
+output = model(input_data)
+```
+Basically, no Activation function as the last layer makes in the Regression model. 
+
+**Multiclass**  
 ```
   import torch  
   import torch.nn as nn   
