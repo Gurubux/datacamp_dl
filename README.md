@@ -43,7 +43,7 @@ In regression,
 model = nn.Sequential(nn.Linear(6,4), nn.Linear(4,1))  
 output = model(input_data)  
 Basically, no Activation function as the last layer makes in Regression model.   
-`
+```
   import torch  
   import torch.nn as nn   
   input_tensor = torch.Tensor([[3, 4, 6, 7, 10, 12, 2, 3, 6, 8, 9]])  
@@ -57,4 +57,4 @@ Basically, no Activation function as the last layer makes in Regression model.
   )  
   output = model(input_tensor)  
   print(output)  
-  `
+  ```
