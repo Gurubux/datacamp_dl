@@ -17,9 +17,7 @@ linear_layer.bias
 
 
 # Create network with three linear layers
-model = nn.Sequential(  nn.Linear(10, 18),    
-nn.Linear(18, 20),   
-nn.Linear(20, 5))
+model = nn.Sequential(nn.Linear(10, 18),nn.Linear(18, 20), nn.Linear(20, 5))
 
 "Activation function"  
 Activation function as the last Layer      
@@ -27,5 +25,5 @@ Binary-Sigmoid classification
 Multiclass-Sofmax classification  
 
 
-Running a Forward pass through a network
+Running a Forward pass through a network  
 Predicting using a model
