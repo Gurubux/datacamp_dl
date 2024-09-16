@@ -62,3 +62,10 @@ Basically, no Activation function as the last layer makes in the Regression mode
   output = model(input_tensor)  
   print(output)  
   ```
+
+
+**Loss Function**  
+- Gives Feedback to model during training
+- Takes in y and  yhat and returns outputs a float.
+
+loss = F(y, yhat)
