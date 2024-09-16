@@ -25,3 +25,7 @@ nn.Linear(20, 5))
 Activation function as the last Layer      
 Binary-Sigmoid classification    
 Multiclass-Sofmax classification  
+
+
+Running a Forward pass through a network
+Predicting using a model
