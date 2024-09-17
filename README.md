@@ -149,3 +149,14 @@ loss.backward()
 # Update the model's parameters using the optimizer
 optimizer.step()
 ```
+
+## Training a neural network
+
+1. Create a model
+2. Choose a loss function
+3. Create a dataset
+4. Define an optimizer
+5. Run a training loop, where for each sample of the dataset, we repeat:
+   - Calculating loss (forward pass)
+   - Calculating local gradients
+   - Updating model parameters
