@@ -111,3 +111,29 @@ optimizer = optim.SGD(model.parameters(), lr=0.001)
 optimizer.step()
 
 ```
+
+```
+model = nn.Sequential(nn.Linear(16, 8),
+                      nn.Sigmoid(),
+                      nn.Linear(8, 2))
+
+# Access the weight of the first linear layer
+weight_0 = model[0].weight
+
+# Access the bias of the second linear layer
+bias_1 = model[2].bias
+
+weight0 = model[0].weight
+weight1 = model[1].weight
+weight2 = model[2].weight
+
+# Access the gradients of the weight of each linear layer
+grads0 = weight0.grad
+grads1 = weight1.grad
+grads2 = weight2.grad
+
+# Update the weights using the learning rate and the gradients
+weight0 =  weight0.data - lr * grads0
+weight1 =  weight1.data - lr * grads1
+weight2 =  weight2.data - lr * grads2
+```
