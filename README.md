@@ -288,7 +288,9 @@ A good rule of thumb is to use ReLU as the default activation function in your m
     - output - n_classes (fixed)
     - hidden - Higher the hidden layers = increasing parameter = increasing model capacity
 
-  ![image](https://github.com/user-attachments/assets/af63b4da-8561-42ba-b687-a96fffe4454c)
+  ![image](https://github.com/user-attachments/assets/16e87720-c4da-49de-9e05-e3d0c6b0d1d0)
+
+
 
 ### Counting the number of parameters
 ### Manipulating the capacity of a network
