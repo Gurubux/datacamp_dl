@@ -69,7 +69,9 @@ Basically, no Activation function as the last layer makes in the Regression mode
 - Takes in y and  yhat and returns outputs a float.
 
 loss = F(y, yhat)  
-Loss Function --> **CrossEntropyLoss** == Classification Problem      
+Loss Function  
+1. **CrossEntropyLoss** == Classification Problem  
+2. **MSELoss** == Regression Problem
 **one_hot**  
 ```
 import torch
@@ -160,3 +162,17 @@ optimizer.step()
    - Calculating loss (forward pass)
    - Calculating local gradients
    - Updating model parameters
+
+```
+# Create the dataset and the dataloader
+dataset = TensorDataset(torch.tensor(features).float(), torch.tensor(target).float())
+dataloader = DataLoader(dataset, batch_size=4, shuffle=True)
+
+# Create the model
+model = nn.Sequential(nn.Linear(4, 2),
+                      nn.Linear(2, 1))
+
+# Create the loss and optimizer
+criterion = nn.MSELoss()
+optimizer = optim.SGD(model.parameters(), lr=0.001)
+```
