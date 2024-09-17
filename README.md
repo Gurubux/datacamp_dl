@@ -257,6 +257,7 @@ Sigmoid has a Vanishing Gradient Problem during backpropagation
 - Approaches 0 for low and high values of x
 - Cause the function to Saturate
 
+### Implementing ReLU
 1. ReLU
 So, We need ReLU- Rectified Linear Unit
   - f(x) = max(x,0)
@@ -267,6 +268,7 @@ So, We need ReLU- Rectified Linear Unit
   #Pytorch
   relu = nn.Relu()
   ```
+### Implementing leaky ReLU
 2. Leaky ReLU
   - Same for positive x
   - For negative x, it multiplies the x with a small coefficient (defaulted to 0.01)
@@ -276,30 +278,28 @@ So, We need ReLU- Rectified Linear Unit
   ```
 That's correct! Leaky ReLU is another very popular activation function found in modern architecture. By never setting the gradients to zero, it allows every parameter of the model to keep learning.    
 
-### Implementing ReLU
+A good rule of thumb is to use ReLU as the default activation function in your models (except for the last layer).
 
-### Implementing leaky ReLU
 
 ### Understanding activation functions
-
 ## A deeper dive into neural network architecture
+- Full connected Layers
+    - input - n_features (fixed)
+    - output - n_classes (fixed)
+    - hidden - Higher the hidden layers = increasing parameter = increasing model capacity
+
+  ![image](https://github.com/user-attachments/assets/af63b4da-8561-42ba-b687-a96fffe4454c)
 
 ### Counting the number of parameters
-
 ### Manipulating the capacity of a network
 
 ## Learning rate and momentum
-
 ### Experimenting with learning rate
-
 ### Experimenting with momentum
 
 ## Layer initialization and transfer learning
-
 ### Fine-tuning process
-
 ### Freeze layers of a model
-
 ### Layer initialization
 
 
