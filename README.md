@@ -72,5 +72,21 @@ loss = F(y, yhat)
 **CrossEntropyLoss**    
 **one_hot**  
 ```
-F.one_hot(torch.tensor(0), num_classes = 3)
+import torch
+import torch.nn.functional as F
+from torch.nn import CrossEntropyLoss
+
+y = [2]
+scores = torch.tensor([[0.1, 6.0, -2.0, 3.2]])
+
+# Create a one-hot encoded vector of the label y
+one_hot_label = F.one_hot(torch.tensor(y), scores.shape[1])
+
+# Create the cross entropy loss function
+criterion = CrossEntropyLoss()
+
+# Calculate the cross entropy loss
+loss = criterion(scores.double(), one_hot_label.double())
+
+print(loss)
 ```
