@@ -326,6 +326,8 @@ Loss function = Non-Convex
 
 ![image](https://github.com/user-attachments/assets/696cf8b7-6bc5-4e53-a56e-e10a89c26c51)
 
+![image](https://github.com/user-attachments/assets/6d56f86b-4ba2-4da6-8a93-b91678bcd2d7)
+
 
 ## Layer initialization and transfer learning
 ### Fine-tuning process
