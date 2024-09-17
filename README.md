@@ -105,7 +105,8 @@ Non-Convex Functions: Two or more local minimum
 - In pytorch, an optimizer takes care of weight updates
 - Most common: SGD (Stochastic GD)
 ```
-import torch.optim as optim# Create the optimizeroptimizer = optim.SGD(model.parameters(), lr=0.001)
+import torch.optim as optim # Create the optimizer
+optimizer = optim.SGD(model.parameters(), lr=0.001)
 # Optimizer handles updating model parameters (or weights) after calculation of localgradients
 optimizer.step()
 
