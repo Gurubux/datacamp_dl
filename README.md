@@ -137,3 +137,14 @@ weight0 =  weight0.data - lr * grads0
 weight1 =  weight1.data - lr * grads1
 weight2 =  weight2.data - lr * grads2
 ```
+**Using the PyTorch optimizer**
+```
+# Create the optimizer
+optimizer = optim.SGD(model.parameters(), lr=0.001)
+
+loss = criterion(pred, target)
+loss.backward()
+
+# Update the model's parameters using the optimizer
+optimizer.step()
+```
