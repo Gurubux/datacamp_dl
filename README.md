@@ -100,4 +100,5 @@ Convex Functions: Only one local minimum
 Non-Convex Functions: Two or more local minimum
 ![image](https://github.com/user-attachments/assets/7b3095e6-1c98-492f-9bb8-438628412c9a)
 
+**The goal is the find the Global Minimum of non Complex Function**
 
