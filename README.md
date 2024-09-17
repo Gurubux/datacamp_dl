@@ -94,4 +94,10 @@ print(loss)
 **Using Derivatives**  
 Gradient == Derivatives
 
-![image](https://github.com/user-attachments/assets/0b426a31-4fe6-40c6-a265-4f15371013b6)
+![image](https://github.com/user-attachments/assets/0b426a31-4fe6-40c6-a265-4f15371013b6)  
+
+Convex Functions: Only one local minimum
+Non-Convex Functions: Two or more local minimum
+![image](https://github.com/user-attachments/assets/7b3095e6-1c98-492f-9bb8-438628412c9a)
+
+
