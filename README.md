@@ -90,3 +90,6 @@ loss = criterion(scores.double(), one_hot_label.double())
 
 print(loss)
 ```
+
+**Using Derivatives**  
+Gradient == Derivatives
