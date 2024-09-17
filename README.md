@@ -111,7 +111,8 @@ optimizer = optim.SGD(model.parameters(), lr=0.001)
 optimizer.step()
 
 ```
-
+### Update the weight of a network  
+**Manual**
 ```
 model = nn.Sequential(nn.Linear(16, 8),
                       nn.Sigmoid(),
