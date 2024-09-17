@@ -163,6 +163,8 @@ optimizer.step()
    - Calculating local gradients
    - Updating model parameters
 
+
+Steps 1 to 4
 ```
 # Create the dataset and the dataloader
 dataset = TensorDataset(torch.tensor(features).float(), torch.tensor(target).float())
@@ -176,3 +178,33 @@ model = nn.Sequential(nn.Linear(4, 2),
 criterion = nn.MSELoss()
 optimizer = optim.SGD(model.parameters(), lr=0.001)
 ```
+
+Step 5
+```
+# Loop through the dataset multiple times
+for epoch in range(num_epochs):
+    for data in dataloader:
+        
+        # Set the gradients to zero
+        optimizer.zero_grad()
+        
+        # Get feature and target from the data loader
+        feature, target = data
+        
+        # Run a forward pass
+        pred = model(feature)
+        
+        # Compute loss and gradients
+        loss = criterion(pred, target)
+        loss.backward()
+        
+        # Update the parameters
+        optimizer.step()
+```
+1. Loop through epochs: The outer loop iterates over a specified number of training cycles (epochs).
+2. **Loop through data**: For each epoch, the inner loop iterates through batches of data provided by the dataloader.
+3. **Reset gradients**: optimizer.zero_grad() resets the gradients to prevent accumulation from previous batches.
+4. **Forward pass**: The model makes predictions (pred = model(feature)) based on the current features.
+5. **Loss computation**: The loss is calculated based on the model's predictions and the true target values using the specified criterion.
+6. **Backward pass**: loss.backward() computes the gradients of the loss with respect to the model's parameters.
+7. **Update weights**: optimizer.step() updates the model's parameters based on the gradients and the learning rate.
