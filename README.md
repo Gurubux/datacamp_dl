@@ -100,5 +100,13 @@ Convex Functions: Only one local minimum
 Non-Convex Functions: Two or more local minimum
 ![image](https://github.com/user-attachments/assets/7b3095e6-1c98-492f-9bb8-438628412c9a)
 
-**The goal is the find the Global Minimum of non Complex Function**
+**The goal is to find the Global Minimum of non-Complex Function**
+- Using Gradient Descent
+- In pytorch, an optimizer takes care of weight updates
+- Most common: SGD (Stochastic GD)
+```
+import torch.optim as optim# Create the optimizeroptimizer = optim.SGD(model.parameters(), lr=0.001)
+# Optimizer handles updating model parameters (or weights) after calculation of localgradients
+optimizer.step()
 
+```
