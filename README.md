@@ -288,16 +288,44 @@ A good rule of thumb is to use ReLU as the default activation function in your m
     - output - n_classes (fixed)
     - hidden - Higher the hidden layers = increasing parameter = increasing model capacity
 
+### Counting the number of parameters
   ![image](https://github.com/user-attachments/assets/16e87720-c4da-49de-9e05-e3d0c6b0d1d0)
 
-
-
-### Counting the number of parameters
 ### Manipulating the capacity of a network
+```
+n_features = 8
+n_classes = 2
+
+input_tensor = torch.Tensor([[3, 4, 6, 2, 3, 6, 8, 9]])
+
+# Create a neural network with more than 120 parameters
+model = nn.Sequential(nn.Linear(n_features, 8),
+                      nn.Linear(8, 4),
+                      nn.Linear(4, 2),
+                      nn.Linear(2, n_classes))
+
+output = model(input_tensor)
+
+print(calculate_capacity(model))
+```
 
 ## Learning rate and momentum
+**Training a neural network = Solving an Optimization Problem**  
+ ![image](https://github.com/user-attachments/assets/15a121d8-8417-481b-89fb-e3a9deddfa08)
+
 ### Experimenting with learning rate
+![image](https://github.com/user-attachments/assets/213c6513-1e6e-414d-9bc9-39a9cc61ec3a)
+
+![image](https://github.com/user-attachments/assets/c1f89070-952a-431f-931c-71847c74937b)
+
+![image](https://github.com/user-attachments/assets/521cc822-98be-4a49-9606-ce5f4ecceddb)
+
 ### Experimenting with momentum
+Loss function = Non-Convex  
+![image](https://github.com/user-attachments/assets/25cd430f-d82a-487d-b25a-7e173b308ded)  
+
+![image](https://github.com/user-attachments/assets/696cf8b7-6bc5-4e53-a56e-e10a89c26c51)
+
 
 ## Layer initialization and transfer learning
 ### Fine-tuning process
@@ -307,4 +335,4 @@ A good rule of thumb is to use ReLU as the default activation function in your m
 
 
 
-# CHpater 4: Evaluating and Improving Models
+# Chpater 4: Evaluating and Improving Models
