@@ -252,5 +252,57 @@ show_results(model, dataloader)
 ```
 
 # Chapter 3: Neural Network Architecture and Hyperparameters  
+## Discovering activation functions between layers
+Sigmoid has a Vanishing Gradient Problem during backpropagation
+- Approaches 0 for low and high values of x
+- Cause the function to Saturate
+
+1. ReLU
+So, We need ReLU- Rectified Linear Unit
+  - f(x) = max(x,0)
+  - Positive x, f(x) is x
+  - Negative x, f(x) is 0
+  - Thus, Overcoming vanishing gradient problem
+  ```
+  #Pytorch
+  relu = nn.Relu()
+  ```
+2. Leaky ReLU
+  - Same for positive x
+  - For negative x, it multiplies the x with a small coefficient (defaulted to 0.01)
+  - Thus, The gradients for negative x are never NULL
+  ```
+  leaky_relu = nn.LeakyReLU(negative_slope = 0.05)
+  ```
+That's correct! Leaky ReLU is another very popular activation function found in modern architecture. By never setting the gradients to zero, it allows every parameter of the model to keep learning.    
+
+### Implementing ReLU
+
+### Implementing leaky ReLU
+
+### Understanding activation functions
+
+## A deeper dive into neural network architecture
+
+### Counting the number of parameters
+
+### Manipulating the capacity of a network
+
+## Learning rate and momentum
+
+### Experimenting with learning rate
+
+### Experimenting with momentum
+
+## Layer initialization and transfer learning
+
+### Fine-tuning process
+
+### Freeze layers of a model
+
+### Layer initialization
 
 
+
+
+# CHpater 4: Evaluating and Improving Models
