@@ -208,3 +208,37 @@ for epoch in range(num_epochs):
 5. **Loss computation**: The loss is calculated based on the model's predictions and the true target values using the specified criterion.
 6. **Backward pass**: loss.backward() computes the gradients of the loss with respect to the model's parameters.
 7. **Update weights**: optimizer.step() updates the model's parameters based on the gradients and the learning rate.
+
+
+```
+y_hat = np.array(10)
+y = np.array(1)
+
+# Calculate the MSELoss using NumPy
+mse_numpy = np.mean((y_hat - y)**2)
+
+# Create the MSELoss function
+criterion = nn.MSELoss()
+
+# Calculate the MSELoss using the created loss function
+mse_pytorch = criterion(torch.tensor(y_hat).float(), torch.tensor(y).float())
+print(mse_pytorch)
+```
+
+```
+# Loop over the number of epochs and the dataloader
+for i in range(num_epochs):
+  for data in dataloader:
+    # Set the gradients to zero
+    optimizer.zero_grad()
+    # Run a forward pass
+    feature, target = data
+    prediction = model(feature)    
+    # Calculate the loss
+    loss = criterion(prediction, target)    
+    # Compute the gradients
+    loss.backward()
+    # Update the model's parameters
+    optimizer.step()
+show_results(model, dataloader)
+```
