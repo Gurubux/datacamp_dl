@@ -68,4 +68,9 @@ Basically, no Activation function as the last layer makes in the Regression mode
 - Gives Feedback to model during training
 - Takes in y and  yhat and returns outputs a float.
 
-loss = F(y, yhat)
+loss = F(y, yhat)  
+**CrossEntropyLoss**    
+**one_hot**  
+```
+F.one_hot(torch.tensor(0), num_classes = 3)
+```
