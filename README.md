@@ -69,7 +69,7 @@ Basically, no Activation function as the last layer makes in the Regression mode
 - Takes in y and  yhat and returns outputs a float.
 
 loss = F(y, yhat)  
-**CrossEntropyLoss** == Classification Problem      
+Loss Function --> **CrossEntropyLoss** == Classification Problem      
 **one_hot**  
 ```
 import torch
