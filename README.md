@@ -328,13 +328,68 @@ Loss function = Non-Convex
 
 ![image](https://github.com/user-attachments/assets/6d56f86b-4ba2-4da6-8a93-b91678bcd2d7)
 
+Momentum and learning rate are critical to the training of your neural network. A good rule of thumb is to start with a learning rate of 0.001 and a momentum of 0.95.
+
 
 ## Layer initialization and transfer learning
+### Layer initialization
 ### Fine-tuning process
 ### Freeze layers of a model
-### Layer initialization
 
 
+Here’s a summary of the slides related to **Layer Initialization** and **Transfer Learning/Fine-Tuning**:
 
+### **Layer Initialization (1)**
+- **Initial weights**: When a neural network layer is created, its weights are initialized to small random values.
+- **Importance of initialization**: If weights are not normalized, they can cause the network outputs to either explode or vanish, which affects learning.
+- Example code in PyTorch:
+  ```python
+  import torch.nn as nn
+  layer = nn.Linear(64, 128)
+  print(layer.weight.min(), layer.weight.max())
+  ```
+  - Output: The weights are initialized to small values, for example: 
+    ```
+    (tensor(-0.1250), tensor(0.1250))
+    ```
+
+### **Layer Initialization (2)**
+- Weights can be initialized using different methods, such as **uniform distributions** or **normal distributions**.
+- Example code for initializing weights using a uniform distribution in PyTorch:
+  ```python
+  nn.init.uniform_(layer.weight)
+  ```
+  - After initialization, you can check the new weight range:
+    ```python
+    print(layer.weight.min(), layer.weight.max())
+    ```
+  - This can output something like:
+    ```
+    (tensor(0.0002), tensor(1.0000))
+    ```
+
+### **Transfer Learning and Fine Tuning (1)**
+- **Transfer learning**: This technique involves using a pre-trained model on a new task to speed up the learning process, especially when the new dataset is smaller or similar to the original dataset.
+  - For example, a model trained on a large dataset of US salaries can be reused for a smaller dataset of European salaries.
+- Example code to save and load a layer in PyTorch:
+  ```python
+  import torch
+  torch.save(layer, 'layer.pth')  # Save the layer
+  new_layer = torch.load('layer.pth')  # Load the saved layer
+  ```
+
+### **Transfer Learning and Fine-Tuning**
+- **Fine-tuning**: A form of transfer learning where certain layers of the model are "frozen" (i.e., their weights are not updated during training), and only the remaining layers are trained.
+- A common approach is to freeze the **early layers** (those closer to the input) and fine-tune the **later layers** (closer to the output).
+- Example code for freezing layers in PyTorch:
+  ```python
+  for name, param in model.named_parameters():
+      if name == '0.weight':
+          param.requires_grad = False  # Freeze the first layer's weights
+  ```
+
+These slides cover techniques to ensure proper weight initialization and how to leverage transfer learning to accelerate model training, along with fine-tuning for better performance on new tasks.  
+
+**Choosing which layer to freeze is an empirical process but a good rule of thumb is to start with the first layers and go deeper.**
 
 # Chpater 4: Evaluating and Improving Models
