@@ -432,7 +432,7 @@ output = model(features)
 print(output)
 ```
 
-```
+```python
 # Set the model to evaluation mode
 model.eval()
 validation_loss = 0.0
@@ -455,3 +455,42 @@ print(validation_loss_epoch)
 model.train()
 ```
 
+```python
+# Create accuracy metric using torch metrics
+metric = torchmetrics.Accuracy(task="multiclass", num_classes=3)
+for data in dataloader:
+    features, labels = data
+    outputs = model(features)
+    
+    # Calculate accuracy over the batch
+    acc = metric(outputs.softmax(dim=-1), labels.argmax(dim=-1))
+    
+# Calculate accuracy over the whole epoch
+acc = metric.compute()
+
+# Reset the metric for the next epoch 
+metric.reset()
+plot_errors(model, dataloader)
+```
+```python
+# Using the same model, set the dropout probability to 0.8
+model = nn.Sequential(
+    nn.Linear(3072, 16),  # Adjust input size to match the reshaped tensor
+    nn.ReLU(),            # ReLU activation function
+    nn.Dropout(p=0.8)     # Dropout layer with 80% dropout probability
+)
+model(input_tensor)
+```
+
+```python
+values = []
+for idx in range(10):
+    # Randomly sample a learning rate factor between 2 and 4
+    factor = np.random.uniform(2, 4)
+    lr = 10 ** -factor
+    
+    # Randomly select a momentum between 0.85 and 0.99
+    momentum = np.random.uniform(0.85, 0.99)
+    
+    values.append((lr, momentum))
+```
