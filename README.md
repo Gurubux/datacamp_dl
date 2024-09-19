@@ -393,3 +393,65 @@ These slides cover techniques to ensure proper weight initialization and how to 
 **Choosing which layer to freeze is an empirical process but a good rule of thumb is to start with the first layers and go deeper.**
 
 # Chpater 4: Evaluating and Improving Models
+
+```python
+import numpy as np
+import torch
+from torch.utils.data import TensorDataset
+
+np_features = np.array(np.random.rand(12, 8))
+np_target = np.array(np.random.rand(12, 1))
+
+# Convert arrays to PyTorch tensors
+torch_features = torch.tensor(np_features).float()
+torch_target = torch.tensor(np_target).float()
+
+# Create a TensorDataset from two tensors
+dataset = TensorDataset(torch_features, torch_target)
+
+# Return the last element of this dataset
+print(dataset[-1])
+```
+
+### From data loading to running a forward pass
+```python
+# Load the different columns into two PyTorch tensors
+features = torch.tensor(dataframe[['ph', 'Sulfate', 'Conductivity', 'Organic_carbon']].to_numpy()).float()
+target = torch.tensor(dataframe['Potability'].to_numpy()).float()
+
+# Create a dataset from the two generated tensors
+dataset = TensorDataset(features, target)
+
+# Create a dataloader using the above dataset
+dataloader = DataLoader(dataset, shuffle=True, batch_size=2)
+x, y = next(iter(dataloader))
+
+# Create a model using the nn.Sequential API
+model = nn.Sequential(nn.Linear(4, 4),nn.Linear(4, 1))
+output = model(features)
+print(output)
+```
+
+```
+# Set the model to evaluation mode
+model.eval()
+validation_loss = 0.0
+
+with torch.no_grad():
+  
+  for data in validationloader:
+    
+      outputs = model(data[0])
+      loss = criterion(outputs, data[1])
+      
+      # Sum the current loss to the validation_loss variable
+      validation_loss += loss.item()
+      
+# Calculate the mean loss value
+validation_loss_epoch = validation_loss / len(validationloader)
+print(validation_loss_epoch)
+
+# Set the model back to training mode
+model.train()
+```
+
